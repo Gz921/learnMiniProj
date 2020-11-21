@@ -14,5 +14,5 @@
 </view>
 <image src="{{imgUrl}}"></image>
 <view>
-  <button bindtap="handleChooseAlbum"></button>
+  <button bindtap="handleChooseAlbum">选择相册</button>
 </view>
