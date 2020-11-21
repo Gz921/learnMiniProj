@@ -12,3 +12,7 @@
 <view>
   <button size="mini" open-type="getUserInfo" bindgetuserinfo="handleGetUserInfo">获取授权</button>
 </view>
+<image src="{{imgUrl}}"></image>
+<view>
+  <button bindtap="handleChooseAlbum"></button>
+</view>

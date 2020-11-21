@@ -56,6 +56,16 @@ Page({
   },
 
   // --------------监听wxml中相关事件
+  handleChooseAlbum() {
+    wx.chooseImage({
+      success: (res) => {
+        const path = res.tempFilePaths[0]
+        this.setData({
+          imgUrl: path
+        })
+      }
+    })
+  },
   handlePlus() {
     this.setData({
       count: this.data.count + 1
