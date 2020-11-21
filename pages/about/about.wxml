@@ -1,0 +1,14 @@
+<!--pages/home/home.wxml-->
+<!--小程序数据绑定-->
+<view>{{myName}}</view>
+<!--列表渲染-->
+<view wx:for="{{hobby}}" wx:key="id">
+  <text>{{item.id}}--{{item.thing}}</text>
+</view>
+<!--事件监听-->
+<view>{{count}}</view>
+<button size="mini" bindtap="handlePlus">增</button>
+<button size="mini" bindtap="handleMinus">减</button>
+<view>
+  <button size="mini" open-type="getUserInfo" bindgetuserinfo="handleGetUserInfo">获取授权</button>
+</view>

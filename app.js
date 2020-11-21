@@ -1,6 +1,7 @@
-//app.js
+//app.js  小程序会自动调用App()方法注册小程序示例
 App({
-  onLaunch: function () {
+  onLaunch: function (options) {
+    console.log('小程序初始化完成')
     // 展示本地存储能力
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
@@ -10,11 +11,13 @@ App({
     wx.login({
       success: res => {
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
+        console.log(res)
       }
     })
     // 获取用户信息
     wx.getSetting({
       success: res => {
+        console.log(res)
         if (res.authSetting['scope.userInfo']) {
           // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
           wx.getUserInfo({
@@ -33,6 +36,20 @@ App({
       }
     })
   },
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function(options){
+    console.log(options)
+  },
+  /**
+   * 生命周期函数--监听页面隐藏
+   */
+  onHide: function(){},
+  /**
+   * 生命周期函数--监听发生错误
+   */
+  onError: function(){},
   globalData: {
     userInfo: null
   }

@@ -1,14 +1,30 @@
 {
   "pages": [
+    "pages/about/about",
     "pages/index/index",
-    "pages/logs/logs",
-    "pages/home/home"
+    "pages/logs/logs"
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "Weixin",
-    "navigationBarTextStyle": "black"
+    "navigationBarBackgroundColor": "#ff5899",
+    "navigationBarTitleText": "Weixin Mini Project",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#521521",
+    "enablePullDownRefresh": true
+  },
+  "tabBar": {
+    "selectedColor": "#ff5899",
+    "list": [{
+      "pagePath": "pages/index/index",
+      "text": "Home",
+      "iconPath": "assets/tabbar/home.png",
+      "selectedIconPath": "assets/tabbar/home.png"
+    },{
+      "pagePath": "pages/about/about",
+      "text": "About",
+      "iconPath": "assets/tabbar/about.png",
+      "selectedIconPath": "assets/tabbar/about.png"
+    }]
   },
   "style": "v2",
   "sitemapLocation": "sitemap.json"
