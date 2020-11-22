@@ -17,7 +17,8 @@ Page({
       {id: 3, thing: 'painting'},
       {id: 4, thing: 'reading'}
     ],
-    count: 0
+    count: 0,
+    active: false,
   },
   
   /**
@@ -64,6 +65,11 @@ Page({
           imgUrl: path
         })
       }
+    })
+  },
+  exChangeColor() {
+    this.setData({
+      active:!this.data.active
     })
   },
   handlePlus() {

@@ -11,15 +11,19 @@
 1. git add . 将工作空间的所有变化添加到暂存区
 2. git commit -m 'xxx' 提交暂存区中的代码
 3. git tag xxxx  打tag
-4. git tags  查看tag
+4. git tag  查看tag
+5. git push origin tag name  推送tag
 5. git log  查看提交记录
 6. git reset 部分版本号 、 git reset --hard 部分版本号  回退、强制回退到某版本
 7. 按照前6步骤继续打tag...
 
 ## 小程序相关
-## 小程序开发工具相关
+### 小程序开发工具相关
 1. 普通编译--添加编译模式：可设置每次编译之后默认启动页面
 ### 小程序数据绑定
+### wsxx的扩展-尺寸单位
+1. rpx(responsive pixel): 可以根据屏幕宽度进行自适应。规定屏幕宽为750rpx
+2. 如在iphone 6上，屏幕宽为375px，共有750个物理像素，则750rpx=375px=750物理像素，1rpx=0.5px=1物理像素。
 ## 小程序配置文件
 - https://developers.weixin.qq.com/miniprogram/dev/framework/config.html
 1. project.config.json：项目配置文件，配置项目名称、qppid等

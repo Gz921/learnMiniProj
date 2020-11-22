@@ -12,6 +12,10 @@
 <view>
   <button size="mini" open-type="getUserInfo" bindgetuserinfo="handleGetUserInfo">获取授权</button>
 </view>
+<view>
+  <button size="mini" bindtap="exChangeColor">切换颜色</button>
+  <text class="{{active? 'active': ''}}">颜色</text>
+</view>
 <image src="{{imgUrl}}"></image>
 <view>
   <button bindtap="handleChooseAlbum">选择相册</button>
