@@ -20,3 +20,11 @@
 <view>
   <button bindtap="handleChooseAlbum">选择相册</button>
 </view>
+<template name="templateDemo">
+  <view>
+    template复用示例{{count}}
+    <button size="mini">{{btnText}}</button>
+  </view>
+</template>
+<template is="templateDemo" data="{{count: 1, btnText: '提交'}}"></template>
+<template is="templateDemo" data="{{count: 2, btnText: '删除'}}"></template>
