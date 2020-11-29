@@ -1,0 +1,9 @@
+// wxs脚本  只能使用es5 语法
+function numToFixed(value, step) {
+  var num = step || 2
+  var f_value = parseFloat(value) // 如果value是字符串
+  return value.toFixed(num)
+}
+module.exports = {
+  numToFixed: numToFixed
+}

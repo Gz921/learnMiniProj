@@ -1,30 +1,60 @@
 <!--pages/home/home.wxml-->
 <!--小程序数据绑定-->
 <view>{{myName}}</view>
-<!--列表渲染-->
-<view wx:for="{{hobby}}" wx:key="id">
-  <text>{{item.id}}--{{item.thing}}</text>
+
+<!--小程序列表渲染 wx:for   item与index是默认的名字-->
+<view wx:for="{{hobby}}" wx:key="id"> <!--wx:key="key" key表示item的某个属性-->
+  <text>{{index}}: {{item.id}}--{{item.thing}}</text>
 </view>
+
+<!--小程序<block/>标签， 给默认item、index起别名 -->
+<block wx:for="{{movies}}" wx:for-item="mitem" wx:for-index="midx" wx:key="midx"><!--block标签无意义，不渲染到页面，仅作为包裹作用，类似于vue的-->
+  <text>{{midx}} -- {{mitem}}</text>
+</block>
+
 <!--事件监听-->
-<view>{{count}}</view>
 <button size="mini" bindtap="handlePlus">增</button>
+<text style="vertical-align: middle;">{{count}}</text>
 <button size="mini" bindtap="handleMinus">减</button>
 <view>
   <button size="mini" open-type="getUserInfo" bindgetuserinfo="handleGetUserInfo">获取授权</button>
 </view>
 <view>
-  <button size="mini" bindtap="exChangeColor">切换颜色</button>
+  <button style="vertical-align: middle;" size="mini" bindtap="exChangeColor">切换颜色</button>
   <text class="{{active? 'active': ''}}">颜色</text>
 </view>
+
+<!-- 小程序image标签相关 -->
 <image src="{{imgUrl}}"></image>
 <view>
   <button bindtap="handleChooseAlbum">选择相册</button>
 </view>
+
+<!-- 小程序模板 template -->
 <template name="templateDemo">
-  <view>
-    template复用示例{{count}}
-    <button size="mini">{{btnText}}</button>
+  <view style="line-height: 32px">
+    <text>template复用示例{{count}}</text> 
+    <button style="vertical-align: middle;" size="mini">{{btnText}}</button>
   </view>
 </template>
 <template is="templateDemo" data="{{count: 1, btnText: '提交'}}"></template>
 <template is="templateDemo" data="{{count: 2, btnText: '删除'}}"></template>
+
+<!-- wxs模块 -->
+<!--1. 直接在wxml中定义使用-->
+<wxs module="opera">
+// wxs脚本  只能使用es5 语法
+function numToFixed(num, step) {
+  return num.toFixed(step)
+}
+module.exports = {
+  numToFixed: numToFixed
+}
+</wxs>
+<view>{{opera.numToFixed(2.33333, 2)}}</view>
+<!--2. 单独定义在wxs文件中，使用wxs标签导入-->
+<wxs src="../../wxs/demo.wxs" module="opera2"/>
+<view>{{opera.numToFixed(3.666666, 4)}}</view>
+
+<wxs src="../../wxs/format_time.wxs" module="timeFormat"></wxs>
+<view>{{timeFormat.dateFormat('1635456450', 'yyyy-MM-dd hh:mm:ss')}}</view>

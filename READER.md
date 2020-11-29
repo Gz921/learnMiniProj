@@ -21,11 +21,28 @@
 ### 小程序开发工具相关
 1. 普通编译--添加编译模式：可设置每次编译之后默认启动页面
 ### 小程序数据绑定
+### 小程序<block/>标签，
+1. 仅仅作为一个包裹元素，不会在页面中做任何渲染，只接受控制属性(wx:for  wx:if)，类似于vue的<template/>
+### 小程序列表渲染 wx:for
 ### 小程序模板 template
 1. 为了进行代码的复用。模板中包裹的内容，在没有被使用前，不会进行任何渲染。
 ### wsxx的扩展-尺寸单位
 1. rpx(responsive pixel): 可以根据屏幕宽度进行自适应。规定屏幕宽为750rpx
 2. 如在iphone 6上，屏幕宽为375px，共有750个物理像素，则750rpx=375px=750物理像素，1rpx=0.5px=1物理像素。
+### wxs模块 是小程序的一套脚本语言，结合wxml，可以构建出页面的结构。wxs与js是不同语言，有自己的语法。
+1. 为什么需要wxs
+  - 在wxml中是不能直接调用Page/Component中定义的函数的
+  - 但在某些情况下，需要用函数处理wxml中的数据(类似于Vue中的过滤器)，此时可以使用wxs
+2. 特点
+  - wxs的运行环境和其他js代码是隔离的，wxs中不能调用其他js文件中定义的函数，也不能调用小程序提供的API
+  - wxs函数不能作为组件的事件回调
+### 常见事件类型
+1. touchstart 手指触摸动作开始
+2. touchmove 手指触摸后移动
+3. touchcancel 手指触摸动作被打断，如来电提醒，弹窗
+4. touchend 手指触摸动作结束
+5. tap 手指触摸后马上离开
+6. longpress 手指触摸后，超过350ms再离开，如果指定了事件回调函数并触发了这个事件，tap事件将不被触发
 ## 小程序配置文件
 - https://developers.weixin.qq.com/miniprogram/dev/framework/config.html
 1. project.config.json：项目配置文件，配置项目名称、qppid等

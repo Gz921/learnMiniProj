@@ -17,6 +17,11 @@ Page({
       {id: 3, thing: 'painting'},
       {id: 4, thing: 'reading'}
     ],
+    movies: [
+      '大话西游',
+      '阿甘正传',
+      '倩女幽魂'
+    ],
     count: 0,
     active: false,
   },
